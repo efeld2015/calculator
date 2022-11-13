@@ -1,0 +1,10 @@
+body {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .calculator {
+    margin-top: 30px;
+    border: solid salmon 2px;
+    padding: 12px;
+  }
