@@ -24,6 +24,8 @@ const inputDisplay = document.querySelector('#inputDisplay');
 // global scoped variables to store numbers and operators
 let numbers = [];
 let operators = [];
+let solution = 0;
+let currentNumber = '';
 let display = '';
 
 // arithmetic functions
@@ -44,6 +46,7 @@ function clear() {
   display = '';
   numbers = [];
   operators = [];
+  currentNumber = '';
   updateDisplay();
 }
 
@@ -59,17 +62,8 @@ function updateDisplay() {
   }
 }
 
-function insertNumber(param1) {
-  numbers.push(param1);
-  console.log(numbers);
-}
-
-function insertOperator(inputOperator) {
-  operators.push(inputOperator);
-  console.log(operators);
-}
-
 // Click functions
+
 function handleClick(event) {
   // set innerText to a variable
   const innerText = event.target.innerText;
@@ -84,14 +78,41 @@ function handleClick(event) {
   updateDisplay();
 
   // LOGIC
-  if (
-    innerText === 'X' ||
-    innerText === '-' ||
-    innerText === '+' ||
-    innerText === '/'
-  ) {
-    console.log(display.slice(-1));
-    // insertNumber(display.slice(-1));
+  if ( innerText === 'X' || innerText === '-' || innerText === '+' || innerText === '/' ) {
+  // insert number value and operator value into arrays
+  numbers.push(currentNumber);
+  operators.push(innerText);
+  currentNumber = ''; 
+  console.log('number array', numbers, 'operator array', operators)
+
+  // TODO: clear display
+  // display = numbers[0];
+  // updateDisplay();
+
+  }
+  else if (innerText === '=') {
+    for (let index = 0; index < numbers.length - 1; index++) {
+      if (index === 0) {
+        solution = numbers[0]
+      } else {
+        let thisNumber = numbers[index];
+        let thisOperator = operators[index - 1]
+        if (thisOperator === 'X') {
+          solution = solution * thisNumber
+        } else if (thisOperator === '-') {
+          solution = solution = thisNumber
+        } else if (thisOperator === '+') {
+          solution = solution + thisNumber
+        } else if (thisOperator === '/') {
+          solution = solution / thisNumber
+        }
+      }
+    }
+    console.log(solution)
+  } else {
+    // sets currentNumber global variable equal to it's original value PLUS the value of innerText
+    currentNumber = currentNumber + innerText;
+    console.log(currentNumber)
   }
 }
 
