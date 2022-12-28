@@ -1,10 +1,83 @@
 body {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .calculator {
-    margin-top: 30px;
-    border: solid salmon 2px;
-    padding: 12px;
-  }
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+.calculator {
+  margin-top: 30px;
+  border: solid lightseagreen 2px;
+  border-radius: 5%;
+  padding: 12px;
+  background-color: gainsboro;
+  width: 300px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 10px 10px black;
+}
+
+button {
+  width: 50px;
+  font-size: 45px;
+  font-family: "Courier New", Courier, monospace;
+  border: solid lightseagreen 3px;
+}
+
+.btn:hover {
+  background: white;
+}
+#inputDisplay {
+  background-color: lightseagreen;
+  border-radius: 5%;
+  border: solid lightgoldenrodyellow 3px;
+  height: 50px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 50px;
+}
+
+.button-style-first-row,
+.button-style-second-row,
+.button-style-third-row,
+.button-style-fourth-row,
+.clear {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.button-style-first-row button {
+  background-color: pink;
+  margin: 5px;
+}
+
+.button-style-second-row button {
+  background-color: lightgoldenrodyellow;
+  margin: 5px;
+}
+
+.button-style-third-row button {
+  background-color: pink;
+  margin: 5px;
+}
+
+.button-style-fourth-row button {
+  background-color: lightgoldenrodyellow;
+  margin: 5px;
+}
+
+.clear {
+  justify-content: flex-end;
+}
+
+#clear:hover {
+  background: white;
+}
+
+#clear {
+  background-color: lightblue;
+  margin: 5px;
+}
